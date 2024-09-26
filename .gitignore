@@ -137,3 +137,6 @@ kernel/configs/android-*.cfg
 
 # Ignore shell scripts on root dir
 /*.sh
+
+# Ignore KSU
+/KernelSU/
