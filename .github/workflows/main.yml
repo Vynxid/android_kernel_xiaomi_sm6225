@@ -60,7 +60,7 @@ jobs:
           export PATH=$(pwd)/zyc-clang/bin/:$PATH
           make $KERNEL_CMDLINE $KERNEL_DEFCONFIG CC="ccache clang"
           make $KERNEL_CMDLINE CC="ccache clang" -j$(nproc --all)
-          cp out/arch/arm64/boot/Image.gz-dtb AnyKernel3
+          cp out/arch/arm64/boot/Image.gz AnyKernel3
 
       - name: Upload Kernel-SU
         uses: actions/upload-artifact@v4
