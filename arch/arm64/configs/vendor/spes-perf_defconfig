@@ -1,4 +1,4 @@
-CONFIG_LOCALVERSION=" AnotherKernel - @AnotherVyn//SPES/SPESN "
+CONFIG_LOCALVERSION=" AnotherKernel - @AnotherVyn//SPES"
 CONFIG_AUDIT=y
 # CONFIG_AUDITSYSCALL is not set
 CONFIG_NO_HZ=y
