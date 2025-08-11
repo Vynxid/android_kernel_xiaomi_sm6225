@@ -1,0 +1,31 @@
+name: Remove KernelSU-Next Submodule
+
+on:
+  workflow_dispatch:  # Dijalankan manual
+
+jobs:
+  remove-submodule:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Perlu full history untuk git rm
+
+      - name: Remove KernelSU-Next submodule
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Hapus submodule dari konfigurasi git
+          git submodule deinit -f -- KernelSU || true
+          git rm -f KernelSU || true
+          rm -rf .git/modules/KernelSU-Next || true
+
+          # Commit perubahan
+          git commit -m "Remove KernelSU submodule" || echo "No changes to commit"
+
+          # Push ke branch aktif
+          git push origin HEAD
+          
